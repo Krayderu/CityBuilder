@@ -9,6 +9,6 @@ public class LightingPresets : ScriptableObject
     public Gradient AmbientColor;
     public Gradient DirectionalColor;
     public Gradient FogColor;
-    public AnimationCurve OtherLightsIntensity;
+    //public AnimationCurve OtherLightsIntensity;//
 
 }

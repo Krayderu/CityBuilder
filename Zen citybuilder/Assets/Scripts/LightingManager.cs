@@ -43,7 +43,18 @@ public class LightingManager : MonoBehaviour
         {
             if (light.type != LightType.Directional)
             {
-                light.intensity = Preset.OtherLightsIntensity.Evaluate(timePercent);
+                if (light.GetComponent<LightSource>() != null)
+                {
+                    LightSource lightSource = light.GetComponent<LightSource>();
+                    if (lightSource.startTime <= TimeOfDay && lightSource.endTime >= TimeOfDay)
+                    {
+                        light.enabled = true;
+                    }
+                    else
+                    {
+                        light.enabled = false;
+                    }
+                }
             }
         }
     }
